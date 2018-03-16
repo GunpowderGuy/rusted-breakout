@@ -1,0 +1,7 @@
+[package]
+name = "rusted"
+version = "0.1.0"
+authors = ["drosario"]
+
+[dependencies]
+pancurses = "0.15"

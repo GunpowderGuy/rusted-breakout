@@ -1,0 +1,11 @@
+/home/drosario/Documents/rusted-breakout/rusted/target/debug/deps/libpancurses-c65b5cbc00677c01.rlib: /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/lib.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/input.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/attributes.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/colorpair.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/mod.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/constants.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/window.rs
+
+/home/drosario/Documents/rusted-breakout/rusted/target/debug/deps/pancurses-c65b5cbc00677c01.d: /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/lib.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/input.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/attributes.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/colorpair.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/mod.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/constants.rs /home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/window.rs
+
+/home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/lib.rs:
+/home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/input.rs:
+/home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/attributes.rs:
+/home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/colorpair.rs:
+/home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/mod.rs:
+/home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/constants.rs:
+/home/drosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/window.rs:
