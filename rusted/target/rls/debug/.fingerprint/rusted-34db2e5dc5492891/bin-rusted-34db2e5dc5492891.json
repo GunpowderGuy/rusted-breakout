@@ -1,1 +1,0 @@
-{"rustc":15436741941175102969,"features":"[]","target":8431789739536095559,"profile":17452606411574101776,"path":1036222786711178230,"deps":[["pancurses v0.15.0",15776867791691723885]],"local":[{"MtimeBased":[[1521245046,574710863],".fingerprint/rusted-34db2e5dc5492891/dep-bin-rusted-34db2e5dc5492891"]}],"rustflags":["--error-format=json"],"epoch":"Epoch2015"}

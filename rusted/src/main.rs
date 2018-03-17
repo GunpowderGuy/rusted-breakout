@@ -13,14 +13,7 @@ fn delay() -> std::time::Duration {
 }
 
 fn main() {
-    let mut local = objetos::Pelota {
-        direction_x: 1,
-        direction_y: 1,
-        x: 0,
-        y: 0,
-        next_x: 0,
-        next_y: 0,
-    };
+    let mut local = objetos::Pelota::new(1, 1, 0, 0, 1, 1);
 
     let stdscr = initscr();
     noecho();

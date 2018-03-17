@@ -2,10 +2,10 @@
 pub struct Pelota {
     pub x: i64,
     pub y: i64,
-    pub next_x: i64,
-    pub next_y: i64,
-    pub direction_x: i64,
-    pub direction_y: i64,
+    next_x: i64,
+    next_y: i64,
+    direction_x: i64,
+    direction_y: i64,
 }
 
 impl Pelota {
