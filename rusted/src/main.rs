@@ -1,4 +1,8 @@
+#[macro_use]
+extern crate derive_new;
+
 extern crate pancurses;
+
 use std::{thread, time};
 use pancurses::{endwin, initscr, noecho, Input};
 
@@ -7,6 +11,7 @@ fn delay() -> std::time::Duration {
     return delay;
 }
 
+#[derive(new, Copy, Clone)]
 struct Pelota {
     x: i64,
     y: i64,
@@ -14,6 +19,12 @@ struct Pelota {
     next_y: i64,
     direction_x: i64,
     direction_y: i64,
+}
+
+impl Pelota {
+    fn mover(&mut self, max_x: i64, max_y: i64) {
+        mover_pelota(self, max_x, max_y)
+    }
 }
 
 fn mover_pelota(input: &mut Pelota, max_x: i64, max_y: i64) {
@@ -56,7 +67,7 @@ fn main() {
 
         thread::sleep(delay()); // usleep(DELAY);
 
-        mover_pelota(&mut local, max_x, max_y)
+        local.mover(max_x, max_y)
     }
     endwin();
 }

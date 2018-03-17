@@ -5,3 +5,4 @@ authors = ["drosario"]
 
 [dependencies]
 pancurses = "0.15"
+derive-new = "0.5"
