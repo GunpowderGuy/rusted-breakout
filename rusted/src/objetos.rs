@@ -1,13 +1,24 @@
-use pancurses;
+use pancurses::Input;
 
 #[derive(new, Copy, Clone)]
-pub struct bloque {
+pub struct Bloque {
     pub x: i64,
     pub y: i64,
 }
 
-impl bloque {
-    pub fn mover(&self, caracter: Option<pancurses::Input>) {}
+impl Bloque {
+    pub fn mover(&mut self, caracter: Option<Input>) -> bool {
+        match caracter {
+            Some(Input::KeyUp) => self.y = self.y - 1,
+            Some(Input::KeyDown) => self.y = self.y + 1,
+            Some(Input::KeyRight) => self.x = self.x + 1,
+            Some(Input::KeyLeft) => self.x = self.x - 1,
+            Some(Input::KeyF1) => return false,
+            Some(Input::KeyEnter) => return false,
+            _ => (), // None => (),
+        }
+        return true;
+    }
 }
 
 #[derive(new, Copy, Clone)]

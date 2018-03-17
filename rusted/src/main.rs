@@ -2,7 +2,7 @@
 extern crate derive_new;
 
 extern crate pancurses;
-use pancurses::{endwin, initscr, noecho, Input};
+use pancurses::{endwin, initscr, noecho};
 
 use std::{thread, time};
 mod objetos;
@@ -14,7 +14,7 @@ fn delay() -> std::time::Duration {
 
 fn main() {
     let mut local = objetos::Pelota::new(1, 1, 0, 0, 1, 1);
-    let jugador = objetos::bloque::new(15, 15);
+    let mut jugador = objetos::Bloque::new(25, 25);
 
     let stdscr = initscr();
     noecho();
@@ -23,7 +23,9 @@ fn main() {
     let max_y = stdscr.get_max_y() as i64; // en la version original enviaba la pantalla como argumento
 
     stdscr.nodelay(true);
-    loop {
+    stdscr.keypad(true);
+
+    while jugador.mover(stdscr.getch()) == true {
         stdscr.clear();
 
         stdscr.mvprintw(local.y as i32, local.x as i32, "o");
@@ -34,7 +36,6 @@ fn main() {
         thread::sleep(delay()); // usleep(DELAY);
 
         local.mover(max_x, max_y);
-        jugador.mover(stdscr.getch());
     }
 
     endwin();
