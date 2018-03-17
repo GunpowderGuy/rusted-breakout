@@ -14,6 +14,7 @@ fn delay() -> std::time::Duration {
 
 fn main() {
     let mut local = objetos::Pelota::new(1, 1, 0, 0, 1, 1);
+    let jugador = objetos::bloque::new(15, 15);
 
     let stdscr = initscr();
     noecho();
@@ -21,14 +22,20 @@ fn main() {
     let max_x = stdscr.get_max_x() as i64; // uso los metodos del tipo SCREEn
     let max_y = stdscr.get_max_y() as i64; // en la version original enviaba la pantalla como argumento
 
+    stdscr.nodelay(true);
     loop {
         stdscr.clear();
+
         stdscr.mvprintw(local.y as i32, local.x as i32, "o");
+        stdscr.mvprintw(jugador.y as i32, jugador.x as i32, "o");
+
         stdscr.refresh();
 
         thread::sleep(delay()); // usleep(DELAY);
 
-        local.mover(max_x, max_y)
+        local.mover(max_x, max_y);
+        jugador.mover(stdscr.getch());
     }
+
     endwin();
 }

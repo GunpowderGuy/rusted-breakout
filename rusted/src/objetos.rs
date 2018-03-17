@@ -1,3 +1,15 @@
+use pancurses;
+
+#[derive(new, Copy, Clone)]
+pub struct bloque {
+    pub x: i64,
+    pub y: i64,
+}
+
+impl bloque {
+    pub fn mover(&self, caracter: Option<pancurses::Input>) {}
+}
+
 #[derive(new, Copy, Clone)]
 pub struct Pelota {
     pub x: i64,
