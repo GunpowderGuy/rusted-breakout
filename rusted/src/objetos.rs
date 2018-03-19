@@ -13,8 +13,8 @@ impl Bloque {
             Some(Input::KeyDown) => self.y = self.y + 1,
             Some(Input::KeyRight) => self.x = self.x + 1,
             Some(Input::KeyLeft) => self.x = self.x - 1,
-            Some(Input::KeyF1) => return false,
-            Some(Input::KeyEnter) => return false,
+            Some(Input::KeyF12) => return false,
+            //    Some(Input::KeyEnter) => return false,
             _ => (), // None => (),
         }
         return true;
