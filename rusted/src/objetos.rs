@@ -4,6 +4,7 @@ use pancurses::Input;
 pub struct Bloque {
     pub x: i64,
     pub y: i64,
+    pub range: i64,
 }
 
 impl Bloque {
@@ -34,6 +35,19 @@ pub struct Pelota {
 impl Pelota {
     pub fn mover(&mut self, max_x: i64, max_y: i64) {
         mover_pelota(self, max_x, max_y)
+    }
+
+    pub fn comparar(&mut self, input: Bloque) {
+        let y = input.y;
+        let x = input.x;
+        let range = input.range;
+        //if self.next_x == x {
+        //    self.direction_x = self.direction_x * -1;
+        //}
+        let absoluto = self.next_x - x;
+        if self.next_y == y && absoluto.abs() <= range {
+            self.direction_y = self.direction_y * -1;
+        }
     }
 }
 
