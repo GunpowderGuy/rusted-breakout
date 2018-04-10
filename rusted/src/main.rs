@@ -2,17 +2,11 @@
 extern crate derive_new;
 
 extern crate pancurses;
-use pancurses::{endwin, initscr, noecho};
 
-use std::{thread, time};
 mod objetos;
+mod screen;
 
 const NBLOQUES: usize = 10;
-
-fn delay() -> std::time::Duration {
-    let delay: std::time::Duration = time::Duration::from_millis(10); // const delay :i64 = 3000;
-    return delay;
-}
 
 fn main() {
     let puntaje = 0;
@@ -24,14 +18,9 @@ fn main() {
     //        bloques[i].x = bloques[1].x + (i * 5) as i64;
     //    }
 
-    let stdscr = initscr();
-    noecho();
-
-    let max_x = stdscr.get_max_x() as i64; // uso los metodos del tipo SCREEn
-    let max_y = stdscr.get_max_y() as i64; // en la version original enviaba la pantalla como argumento
-
-    stdscr.nodelay(true);
-    stdscr.keypad(true);
+    let mut max_x = 0; // uso los metodos del tipo SCREEn
+    let mut max_y = 0; // en la version original enviaba la pantalla como argumento
+    let stdscr = screen::setscreen(&mut max_x, &mut max_y);
 
     while jugador.mover(stdscr.getch()) == true {
         stdscr.clear();
@@ -44,11 +33,11 @@ fn main() {
 
         stdscr.refresh();
 
-        thread::sleep(delay()); // usleep(DELAY);
+        std::thread::sleep(screen::delay()); // usleep(DELAY);
 
         local.mover(max_x, max_y);
         local.comparar(jugador);
     }
 
-    endwin();
+    screen::myendwin();
 }
