@@ -3,6 +3,9 @@ extern crate derive_new;
 
 extern crate pancurses;
 
+#[macro_use]
+extern crate zcomponents;
+
 mod objetos;
 mod screen;
 
