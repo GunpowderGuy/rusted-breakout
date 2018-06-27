@@ -102,6 +102,7 @@ version = "0.1.0"
 dependencies = [
  "derive-new 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "pancurses 0.15.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "zcomponents 0.1.0",
 ]
 
 [[package]]
