@@ -1,0 +1,1 @@
+/home/diegorosario/Documentos/rusted-breakout/rusted/target/rls/debug/librusted-434c930008e13e35.rmeta: /home/diegorosario/Documentos/rusted-breakout/rusted/src/main.rs /home/diegorosario/Documentos/rusted-breakout/rusted/src/mundo.rs /home/diegorosario/Documentos/rusted-breakout/rusted/src/screen.rs /home/diegorosario/Documentos/rusted-breakout/rusted/zcomponents/src/lib.rs

@@ -1,0 +1,11 @@
+/home/diegorosario/Documentos/rusted-breakout/rusted/target/rls/debug/deps/pancurses-c9e51d960e9f9e90.rmeta: /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/lib.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/input.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/attributes.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/colorpair.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/mod.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/constants.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/window.rs
+
+/home/diegorosario/Documentos/rusted-breakout/rusted/target/rls/debug/deps/pancurses-c9e51d960e9f9e90.d: /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/lib.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/input.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/attributes.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/colorpair.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/mod.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/constants.rs /home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/window.rs
+
+/home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/lib.rs:
+/home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/input.rs:
+/home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/attributes.rs:
+/home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/colorpair.rs:
+/home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/mod.rs:
+/home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/unix/constants.rs:
+/home/diegorosario/.cargo/registry/src/github.com-1ecc6299db9ec823/pancurses-0.15.0/src/window.rs:
