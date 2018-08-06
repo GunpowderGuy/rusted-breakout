@@ -22,15 +22,17 @@ pub struct Controlable {
 
 pub fn controlar(mundo: &mut Storage, caracter: Option<Input>) {
     for id in mundo.ids_collected() {
-        if let Some(a) = mundo.posicion.get_opt_mut(id) {
-            match caracter {
-                Some(Input::KeyUp) => a.x = a.x - 1,
-                Some(Input::KeyDown) => a.x = a.x + 1,
-                Some(Input::KeyRight) => a.y = a.y + 1,
-                Some(Input::KeyLeft) => a.y = a.y - 1,
-                //    Some(Input::KeyF12) => return false,
-                //    Some(Input::KeyEnter) => return false,
-                _ => (), // None => (),
+        if let Some(b) = mundo.controlable.get_opt_mut(id) {
+            if let Some(a) = mundo.posicion.get_opt_mut(id) {
+                match caracter {
+                    Some(Input::KeyUp) => a.x = a.x - 1,
+                    Some(Input::KeyDown) => a.x = a.x + 1,
+                    Some(Input::KeyRight) => a.y = a.y + 1,
+                    Some(Input::KeyLeft) => a.y = a.y - 1,
+                    //    Some(Input::KeyF12) => return false,
+                    //    Some(Input::KeyEnter) => return false,
+                    _ => (), // None => (),
+                }
             }
         }
     }

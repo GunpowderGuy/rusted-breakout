@@ -40,14 +40,23 @@ pub fn nuevo() -> cursesSystem {
     };
 
     impl cursesSystem {
-        pub fn renderingSystem(&mut self, mundo: &mut mundo::Storage) -> Option<Input> {
+        pub fn get_input(&mut self) -> Option<Input> {
             let out;
+            if let Some(ref pantalla) = self.stdscr {
+                out = pantalla.getch();
+            } else {
+                return None;
+            }
+            return out;
+        }
+
+        pub fn renderingSystem(&mut self, mundo: &mut mundo::Storage) {
             match self.stdscr {
                 None => self.stdscr = Some(setscreen(&mut self.max_x, &mut self.max_y)),
                 _ => (), // does nothing if there is already some value
             }
+
             if let Some(ref pantalla) = self.stdscr {
-                out = pantalla.getch();
                 pantalla.clear();
 
                 for id in mundo.ids_collected() {
@@ -57,9 +66,6 @@ pub fn nuevo() -> cursesSystem {
                 }
                 pantalla.refresh();
                 thread::sleep(delay()); // usleep(DELAY);
-                return out;
-            } else {
-                return None;
             }
         }
     }

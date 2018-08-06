@@ -5,7 +5,7 @@ pub struct Bloque {
     pub range: i64,
 }
 
-mover_pelota(input: &mut Pelota, max_x: i64, max_y: i64) {
+fn mover_pelota(input: &mut Pelota, max_x: i64, max_y: i64) {
    input.next_x = input.x + input.direction_x;
    input.next_y = input.y + input.direction_y;
 
