@@ -28,10 +28,10 @@ pub fn rebotar(mundo: &mut Storage, limitex: i32, limitey: i32) {
     for id in mundo.ids_collected() {
         if let Some(pelota) = mundo.rebota.get_opt_mut(id) {
             if let Some(a) = mundo.posicion.get_opt_mut(id) {
-                if a.x + 1 < limitex && a.x > 0 {
-                    a.x = a.x + pelota.direction;
-                } else {
+                if (a.x + pelota.direction) >= limitex || (a.x + pelota.direction) < 0 {
                     pelota.direction = pelota.direction * -1;
+                } else {
+                    a.x = a.x + pelota.direction;
                 };
             }
         }
