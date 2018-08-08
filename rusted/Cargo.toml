@@ -7,6 +7,6 @@ authors = ["drosario"]
 members = ["zcomponents"]
 
 [dependencies]
-pancurses = "0.15"
+pancurses = "0.16"
 derive-new = "0.5"
 zcomponents = { path = "zcomponents" }

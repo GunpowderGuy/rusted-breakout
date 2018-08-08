@@ -1,14 +1,15 @@
 use pancurses::Input;
-use screen::cursesSystem;
 
 #[derive(PartialEq, Eq, Clone, Copy, Debug, Hash, Default)]
 pub struct Id(i32);
 
 #[derive(Clone, Debug)]
 pub struct Posicion {
-    pub x: usize,
-    pub y: usize,
+    pub x: i32,
+    pub y: i32,
 }
+
+type sprite = &'static str;
 
 #[derive(Clone, Debug)]
 pub struct Colision {
@@ -16,8 +17,25 @@ pub struct Colision {
 }
 
 #[derive(Clone, Debug)]
-pub struct Controlable {
-    pub existe: bool,
+pub struct Controlable {}
+
+#[derive(Clone, Debug)]
+pub struct Rebota {
+    pub direction: i32,
+}
+
+pub fn rebotar(mundo: &mut Storage, limitex: i32, limitey: i32) {
+    for id in mundo.ids_collected() {
+        if let Some(pelota) = mundo.rebota.get_opt_mut(id) {
+            if let Some(a) = mundo.posicion.get_opt_mut(id) {
+                if a.x + 1 < limitex && a.x > 0 {
+                    a.x = a.x + pelota.direction;
+                } else {
+                    pelota.direction = pelota.direction * -1;
+                };
+            }
+        }
+    }
 }
 
 pub fn controlar(mundo: &mut Storage, caracter: Option<Input>) {
@@ -25,10 +43,10 @@ pub fn controlar(mundo: &mut Storage, caracter: Option<Input>) {
         if let Some(b) = mundo.controlable.get_opt_mut(id) {
             if let Some(a) = mundo.posicion.get_opt_mut(id) {
                 match caracter {
-                    Some(Input::KeyUp) => a.x = a.x - 1,
-                    Some(Input::KeyDown) => a.x = a.x + 1,
-                    Some(Input::KeyRight) => a.y = a.y + 1,
-                    Some(Input::KeyLeft) => a.y = a.y - 1,
+                    Some(Input::KeyUp) => a.y = a.y - 1,
+                    Some(Input::KeyDown) => a.y = a.y + 1,
+                    Some(Input::KeyRight) => a.x = a.x + 1,
+                    Some(Input::KeyLeft) => a.x = a.x - 1,
                     //    Some(Input::KeyF12) => return false,
                     //    Some(Input::KeyEnter) => return false,
                     _ => (), // None => (),
@@ -39,7 +57,10 @@ pub fn controlar(mundo: &mut Storage, caracter: Option<Input>) {
 }
 
 zcomponents_storage!(Storage<Id>: {
+    rebota : Rebota,
     posicion : Posicion,
     colision : Colision,
     controlable : Controlable,
-});
+    visible : sprite,
+}
+);

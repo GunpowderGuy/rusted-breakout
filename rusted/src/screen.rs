@@ -4,12 +4,12 @@ use mundo;
 use std::thread;
 use std::time;
 
-pub fn setscreen(x: &mut i64, y: &mut i64) -> Window {
+pub fn setscreen(x: &mut i32, y: &mut i32) -> Window {
     let stdscr = initscr();
     noecho();
 
-    *x = stdscr.get_max_x() as i64;
-    *y = stdscr.get_max_y() as i64;
+    *x = stdscr.get_max_x();
+    *y = stdscr.get_max_y();
 
     stdscr.nodelay(true);
     stdscr.keypad(true);
@@ -21,15 +21,15 @@ pub fn myendwin() {
     endwin();
 }
 
-// pub const DELAY: time::Duration = time::Duration::from_millis(10);
+//pub const DELAY: time::Duration = time::Duration::from_millis(10);
 pub fn delay() -> time::Duration {
     let delay: time::Duration = time::Duration::from_millis(10); // const delay :i64 = 3000;
     return delay;
 }
 
 pub struct cursesSystem {
-    max_x: i64,
-    max_y: i64,
+    pub max_x: i32,
+    pub max_y: i32,
     stdscr: Option<Window>,
 }
 pub fn nuevo() -> cursesSystem {
@@ -40,7 +40,7 @@ pub fn nuevo() -> cursesSystem {
     };
 
     impl cursesSystem {
-        pub fn get_input(&mut self) -> Option<Input> {
+        pub fn get_input(&self) -> Option<Input> {
             let out;
             if let Some(ref pantalla) = self.stdscr {
                 out = pantalla.getch();
@@ -60,8 +60,10 @@ pub fn nuevo() -> cursesSystem {
                 pantalla.clear();
 
                 for id in mundo.ids_collected() {
-                    if let Some(a) = mundo.posicion.get_opt_mut(id) {
-                        pantalla.mvprintw(a.x as i32, a.y as i32, "0123456789");
+                    if let Some(b) = mundo.visible.get_opt_mut(id) {
+                        if let Some(a) = mundo.posicion.get_opt_mut(id) {
+                            pantalla.mvprintw(a.y as i32, a.x as i32, b);
+                        }
                     }
                 }
                 pantalla.refresh();

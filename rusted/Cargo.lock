@@ -30,14 +30,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "log"
-version = "0.3.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-dependencies = [
- "log 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "log"
 version = "0.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
@@ -56,11 +48,11 @@ dependencies = [
 
 [[package]]
 name = "pancurses"
-version = "0.15.0"
+version = "0.16.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "libc 0.2.42 (registry+https://github.com/rust-lang/crates.io-index)",
- "log 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)",
+ "log 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "ncurses 5.93.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "pdcurses-sys 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "winreg 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -101,7 +93,7 @@ name = "rusted"
 version = "0.1.0"
 dependencies = [
  "derive-new 0.5.5 (registry+https://github.com/rust-lang/crates.io-index)",
- "pancurses 0.15.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pancurses 0.16.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "zcomponents 0.1.0",
 ]
 
@@ -157,10 +149,9 @@ version = "0.1.0"
 "checksum derive-new 0.5.5 (registry+https://github.com/rust-lang/crates.io-index)" = "899ec79626c14e00ccc9729b4d750bbe67fe76a8f436824c16e0233bbd9d7daa"
 "checksum gcc 0.3.54 (registry+https://github.com/rust-lang/crates.io-index)" = "5e33ec290da0d127825013597dbdfc28bee4964690c7ce1166cbc2a7bd08b1bb"
 "checksum libc 0.2.42 (registry+https://github.com/rust-lang/crates.io-index)" = "b685088df2b950fccadf07a7187c8ef846a959c142338a48f9dc0b94517eb5f1"
-"checksum log 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)" = "e19e8d5c34a3e0e2223db8e060f9e8264aeeb5c5fc64a4ee9965c062211c024b"
 "checksum log 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)" = "61bd98ae7f7b754bc53dca7d44b604f733c6bba044ea6f41bc8d89272d8161d2"
 "checksum ncurses 5.93.0 (registry+https://github.com/rust-lang/crates.io-index)" = "0ecd01d431a5e9c1c733a1e3ab939b9b6c9c4ddc540c74caf3909664127785fa"
-"checksum pancurses 0.15.0 (registry+https://github.com/rust-lang/crates.io-index)" = "7e8b44c647ccce6cf8afb048389565ccb7c9a1532d77e085a81fafacddace922"
+"checksum pancurses 0.16.0 (registry+https://github.com/rust-lang/crates.io-index)" = "cedc1409ecbb0a789f39e2a90ae052df6670c1e1c17724587e1872e6ec270e56"
 "checksum pdcurses-sys 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)" = "90e12bfe55b7080fdfa0742f7a22ce7d5d1da250ca064ae6b81c843a2084fa2a"
 "checksum pkg-config 0.3.12 (registry+https://github.com/rust-lang/crates.io-index)" = "6a52e4dbc8354505ee07e484ab07127e06d87ca6fa7f0a516a2b294e5ad5ad16"
 "checksum proc-macro2 0.4.9 (registry+https://github.com/rust-lang/crates.io-index)" = "cccdc7557a98fe98453030f077df7f3a042052fae465bb61d2c2c41435cfd9b6"
