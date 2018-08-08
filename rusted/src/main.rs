@@ -6,11 +6,7 @@ mod screen;
 #[macro_use]
 extern crate zcomponents;
 
-const NBLOQUES: usize = 1;
-
 fn main() {
-    let puntaje = 0;
-
     let mut storage = mundo::Storage::new();
 
     let jugador = storage.alloc_id();
@@ -18,7 +14,8 @@ fn main() {
         .posicion
         .insert(jugador, mundo::Posicion { x: 20, y: 20 });
     storage.controlable.insert(jugador, mundo::Controlable {});
-    storage.visible.insert(jugador, { "j" });
+    storage.visible.insert(jugador, { "jugador" });
+    storage.paleta.insert(jugador, mundo::Paleta { rango: 7 });
 
     let bloque = storage.alloc_id();
     storage
@@ -27,9 +24,13 @@ fn main() {
     storage.visible.insert(bloque, { "b" });
 
     let pelota = storage.alloc_id();
-    storage
-        .rebota
-        .insert(pelota, mundo::Rebota { direction: 1 });
+    storage.rebota.insert(
+        pelota,
+        mundo::Rebota {
+            vectorx: 1,
+            vectory: 1,
+        },
+    );
     storage
         .posicion
         .insert(pelota, mundo::Posicion { x: 20, y: 20 });
@@ -37,12 +38,10 @@ fn main() {
 
     let mut render = screen::nuevo();
 
-    let Gamedata = storage.alloc_id();
-
-    loop {
-        render.renderingSystem(&mut storage);
+    while mundo::controlar(&mut storage, render.get_input()) {
+        render.rendering_system(&mut storage);
         mundo::rebotar(&mut storage, render.max_x, render.max_y);
-        mundo::controlar(&mut storage, render.get_input())
+        mundo::rebotar_de_objeto(&mut storage)
     }
-    //  screen::myendwin();
+    screen::myendwin();
 }

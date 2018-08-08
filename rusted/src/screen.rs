@@ -20,26 +20,21 @@ pub fn setscreen(x: &mut i32, y: &mut i32) -> Window {
 pub fn myendwin() {
     endwin();
 }
+pub const DELAY: time::Duration = time::Duration::from_millis(10);
 
-//pub const DELAY: time::Duration = time::Duration::from_millis(10);
-pub fn delay() -> time::Duration {
-    let delay: time::Duration = time::Duration::from_millis(10); // const delay :i64 = 3000;
-    return delay;
-}
-
-pub struct cursesSystem {
+pub struct CursesSystem {
     pub max_x: i32,
     pub max_y: i32,
     stdscr: Option<Window>,
 }
-pub fn nuevo() -> cursesSystem {
-    return cursesSystem {
+pub fn nuevo() -> CursesSystem {
+    return CursesSystem {
         max_x: 0,
         max_y: 0,
         stdscr: None,
     };
 
-    impl cursesSystem {
+    impl CursesSystem {
         pub fn get_input(&self) -> Option<Input> {
             let out;
             if let Some(ref pantalla) = self.stdscr {
@@ -50,7 +45,7 @@ pub fn nuevo() -> cursesSystem {
             return out;
         }
 
-        pub fn renderingSystem(&mut self, mundo: &mut mundo::Storage) {
+        pub fn rendering_system(&mut self, mundo: &mut mundo::Storage) {
             match self.stdscr {
                 None => self.stdscr = Some(setscreen(&mut self.max_x, &mut self.max_y)),
                 _ => (), // does nothing if there is already some value
@@ -67,7 +62,7 @@ pub fn nuevo() -> cursesSystem {
                     }
                 }
                 pantalla.refresh();
-                thread::sleep(delay()); // usleep(DELAY);
+                thread::sleep(DELAY); // usleep(DELAY);
             }
         }
     }
