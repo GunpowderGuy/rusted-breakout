@@ -12,7 +12,7 @@ fn main() {
     let jugador = storage.alloc_id();
     storage
         .posicion
-        .insert(jugador, mundo::Posicion { x: 20, y: 20 });
+        .insert(jugador, mundo::Posicion { x: 25, y: 10 });
     storage.controlable.insert(jugador, mundo::Controlable {});
     storage.visible.insert(jugador, { "jugador" });
     storage.paleta.insert(jugador, mundo::Paleta { rango: 7 });
@@ -20,7 +20,7 @@ fn main() {
     let bloque = storage.alloc_id();
     storage
         .posicion
-        .insert(bloque, mundo::Posicion { x: 25, y: 25 });
+        .insert(bloque, mundo::Posicion { x: 15, y: 35 });
     storage.visible.insert(bloque, { "b" });
 
     let pelota = storage.alloc_id();
@@ -36,11 +36,11 @@ fn main() {
         .insert(pelota, mundo::Posicion { x: 20, y: 20 });
     storage.visible.insert(pelota, { "p" });
 
-    let mut render = screen::nuevo();
+    let mut render = screen::setscreen();
 
-    while mundo::controlar(&mut storage, render.get_input()) {
-        render.rendering_system(&mut storage);
-        mundo::rebotar(&mut storage, render.max_x, render.max_y);
+    while mundo::controlar(&mut storage, render.getch()) {
+        screen::rendering_system(&mut render, &mut storage);
+        mundo::rebotar(&mut storage, render.get_max_x(), render.get_max_y());
         mundo::rebotar_de_objeto(&mut storage)
     }
     screen::myendwin();
