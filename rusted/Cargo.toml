@@ -3,10 +3,7 @@ name = "rusted"
 version = "0.1.0"
 authors = ["drosario"]
 
-[workspace]
-members = ["zcomponents"]
-
 [dependencies]
 pancurses = "0.16"
 derive-new = "0.5"
-zcomponents = { path = "zcomponents" }
+zcomponents = "0.1.1"
