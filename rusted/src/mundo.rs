@@ -79,16 +79,16 @@ pub fn controlar(mundo: &mut Storage, caracter: Option<Input>) -> bool {
 }
 
 pub fn rebotar_de_objeto(mundo: &mut Storage) {
-    let mundo2 = mundo.clone();
+    // let mundo2 = mundo.clone();
     for id in mundo.ids_collected() {
-        if let Some(pelota) = mundo.rebota.get_opt_mut(id) {
-            if let Some(posicionbola) = mundo.posicion.get_opt(id) {
-                for id in mundo2.ids_collected() {
-                    if let Some(_paleta) = mundo.paleta.get_opt(id) {
-                        if let Some(_posicionp) = mundo.posicion.get_opt(id) {
-                            let absoluto = posicionbola.x + pelota.vectorx;
-                            if posicionbola.y + pelota.vectory == posicionbola.y
-                                && absoluto.abs() <= _paleta.rango
+        if let Some(paleta) = mundo.paleta.get_opt(id) {
+            if let Some(posicionp) = mundo.posicion.get_opt(id) {
+                for id in mundo.ids_collected() {
+                    if let Some(pelota) = mundo.rebota.get_opt_mut(id) {
+                        if let Some(posicionbola) = mundo.posicion.get_opt(id) {
+                            let absoluto = posicionp.x - (pelota.vectorx + posicionbola.x);
+                            if posicionbola.y + pelota.vectory == posicionp.y
+                                && absoluto.abs() <= paleta.rango
                             {
                                 pelota.vectory = pelota.vectory * -1;
                             }

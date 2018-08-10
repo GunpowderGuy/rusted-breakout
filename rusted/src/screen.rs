@@ -31,6 +31,7 @@ pub fn rendering_system(pantalla: &mut CursesSystem, mundo: &mut mundo::Storage)
     for id in mundo.ids_collected() {
         if let Some(b) = mundo.visible.get_opt(id) {
             if let Some(a) = mundo.posicion.get_opt_mut(id) {
+                //    pantalla.mvprintw(a.y as i32, a.x as i32, format!("{}", a.x));
                 pantalla.mvprintw(a.y as i32, a.x as i32, b);
             }
         }

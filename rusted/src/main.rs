@@ -14,13 +14,13 @@ fn main() {
         .posicion
         .insert(jugador, mundo::Posicion { x: 25, y: 10 });
     storage.controlable.insert(jugador, mundo::Controlable {});
-    storage.visible.insert(jugador, { "jugador" });
-    storage.paleta.insert(jugador, mundo::Paleta { rango: 7 });
+    storage.visible.insert(jugador, { "jugador0123456789" });
+    storage.paleta.insert(jugador, mundo::Paleta { rango: 17 });
 
     let bloque = storage.alloc_id();
     storage
         .posicion
-        .insert(bloque, mundo::Posicion { x: 15, y: 35 });
+        .insert(bloque, mundo::Posicion { x: 9, y: 35 });
     storage.visible.insert(bloque, { "b" });
 
     let pelota = storage.alloc_id();
