@@ -21,7 +21,9 @@ fn main() {
     storage
         .posicion
         .insert(bloque, mundo::Posicion { x: 9, y: 35 });
-    storage.visible.insert(bloque, { "b" });
+    storage.visible.insert(bloque, { "abcdef" });
+    storage.paleta.insert(bloque, mundo::Paleta { rango: 6 });
+    storage.rompible.insert(bloque, mundo::Rompible {});
 
     let pelota = storage.alloc_id();
     storage.rebota.insert(

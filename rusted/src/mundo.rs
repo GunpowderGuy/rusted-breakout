@@ -12,6 +12,9 @@ pub struct Posicion {
 type Sprite = &'static str;
 
 #[derive(Clone, Debug)]
+pub struct Rompible {}
+
+#[derive(Clone, Debug)]
 pub struct Colision {
     pub range: usize,
 }
@@ -37,6 +40,7 @@ zcomponents_storage!(Storage<Id>: {
     controlable : Controlable,
     visible : Sprite,
     paleta: Paleta,
+    rompible : Rompible,
 }
 );
 
@@ -79,10 +83,11 @@ pub fn controlar(mundo: &mut Storage, caracter: Option<Input>) -> bool {
 }
 
 pub fn rebotar_de_objeto(mundo: &mut Storage) {
-    // let mundo2 = mundo.clone();
-    for id in mundo.ids_collected() {
-        if let Some(paleta) = mundo.paleta.get_opt(id) {
-            if let Some(posicionp) = mundo.posicion.get_opt(id) {
+    let mut remover = Vec::new();
+
+    for id0 in mundo.ids_collected() {
+        if let Some(paleta) = mundo.paleta.get_opt(id0) {
+            if let Some(posicionp) = mundo.posicion.get_opt(id0) {
                 for id in mundo.ids_collected() {
                     if let Some(pelota) = mundo.rebota.get_opt_mut(id) {
                         if let Some(posicionbola) = mundo.posicion.get_opt(id) {
@@ -91,11 +96,17 @@ pub fn rebotar_de_objeto(mundo: &mut Storage) {
                                 && absoluto.abs() <= paleta.rango
                             {
                                 pelota.vectory = pelota.vectory * -1;
+                                if let Some(_rompible) = mundo.rompible.get_opt(id0) {
+                                    remover.push(id0);
+                                }
                             }
                         }
                     }
                 }
             }
         }
+    }
+    for i in remover {
+        mundo.remove(i);
     }
 }
